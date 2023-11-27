@@ -35,6 +35,6 @@
         <ComboBox x:Name="categoryNameComboBox" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="293" SelectionChanged="categoryNameComboBox_SelectionChanged"/>
         <Label x:Name="tablesLabel" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,0.379"/>
         <Button x:Name="addButton" Content="Add Product" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="20" Margin="0,0,0,10" Click="addButton_Click"/>
-
+        
     </Grid>
 </Window>

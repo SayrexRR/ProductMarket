@@ -19,7 +19,7 @@ namespace ProductMarket
 {
     public partial class MainWindow : Window
     {
-        private const string labelContent = "Products:";
+        private const string labelContent = "Products List:";
         private readonly ProductService productService;
 
         private CollectionViewSource productViewSource;
