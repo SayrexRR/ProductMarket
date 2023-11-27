@@ -1,0 +1,40 @@
+﻿<Window x:Class="ProductMarket.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductMarket"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="897" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="productViewSource"/>
+    </Window.Resources>
+
+    <Grid>
+        <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False"
+                  Margin="10,50,10,40" EnableRowVirtualization="True"
+                  ItemsSource="{Binding Source={StaticResource productViewSource}}"
+                  IsReadOnly="True" MouseDoubleClick="myDataGrid_MouseDoubleClick"
+                  RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding CategoryName}" Header="Category" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Price" Width="*"/>
+                <DataGridTextColumn Binding="{Binding InStock}" Header="Stock" Width="*"/>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="deleteButton"  Content="❌" Click="deleteButton_Click" Background="Red" Foreground="White"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ComboBox x:Name="categoryNameComboBox" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="293" SelectionChanged="categoryNameComboBox_SelectionChanged"/>
+        <Label x:Name="tablesLabel" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,0.379"/>
+        <Button x:Name="addButton" Content="Add Product" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="20" Margin="0,0,0,10" Click="addButton_Click"/>
+
+    </Grid>
+</Window>
